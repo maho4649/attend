@@ -1,0 +1,459 @@
+.logo-header {
+    background-color: black;
+    padding: 10px 20px;
+    margin-right: 0;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+
+}
+
+/* ナビゲーションバー全体 */
+.navbar {
+    background-color: black;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+/* 中央コンテナ */
+.nav-container {
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+.right-area {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;/* 左右に分かれるように */
+    gap: 40px;
+}
+
+.nav-links a,
+.logout-form button {
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px;
+}
+
+
+/* ロゴ */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.auth-links a {
+    color: white;
+}
+
+.auth-form {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.auth-form label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 入力フィールド */
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ボタン */
+.auth-form button {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+}
+
+.auth-form a {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+}
+.main-content{
+    max-width: auto;
+    margin: auto;
+    padding: 30px;
+    background-color: #e8e5e5;
+    min-height: 100vh;
+}
+
+.attendance-form {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+.attendance-form h1{
+    text-align: left;
+}
+
+.status-label {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 9999px;
+    background-color: rgb(199, 195, 195);
+    user-select: none;
+    transition: all 0.2s;
+    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.date-label {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+.time-label {
+    font-weight:bold;
+    font-size: 2em;
+}
+.inline-form {
+    display: inline-block;
+    margin: 0 40px;/* 左右に少し余白 */
+}
+
+.btn-work{
+    display: inline-block;
+    width: 200px;
+    padding: 1em 0;
+    border-radius: 10px;
+    margin-top: 50px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-break{
+    display: inline-block;
+    width: 200px;
+    padding: 1em 0;
+    border-radius: 10px;
+    margin-top: 50px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.date-navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color:white;
+    border-radius: 8px;
+    padding: 10px 20px;/* 内側の余白 */
+    max-width: auto;
+    margin: auto;
+    margin-bottom: 30px;
+    
+}
+
+.date-navigation input[type="date"] {
+    border: none;
+    outline: none;/* フォーカス時の青枠も消す */
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 20px;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.link-btn {
+    color: black;
+    text-decoration: none;/* 下線を消す */
+}
+
+/* テーブル全体 */
+.attendance-table {
+    width: 100%;
+    border-collapse: separate;
+    margin-top: 20px; 
+    overflow: hidden;/* 丸角を反映 */
+    border-spacing: 0 5px;
+    
+}
+
+.attendance-table thead th {
+    background-color: white;
+    color: #6f6d6d;
+    text-align: center;
+    padding: 12px 15px;
+}
+
+/* ヘッダー角を丸くする */
+.attendance-table thead tr th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.attendance-table thead tr th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* ボディ */
+.attendance-table tbody td {
+    padding: 12px 15px;
+    text-align: center;
+    background-color: white;
+}
+
+/* tbody 最後の行の角を丸くする */
+.attendance-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.attendance-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+
+/* 詳細リンク */
+.attendance-table td a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.request-tab {
+    display: flex;
+    justify-content: flex-start;/* 左寄せ */
+    align-items: center;
+    gap: 40px;
+    padding: 10px 0;/* 上下の余白 */
+}
+.request-tab a{
+    text-decoration: none;   
+    color: black;
+    font-weight: normal;
+    transition: all 0.2s;
+}
+/* 選択中のタブ */
+.request-tab a.tab-active {
+    font-weight: bold;
+}
+
+/* 下線 */
+.tab-underline {
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin: 0;
+}
+
+/* 勤怠詳細テーブル */
+.attendance-show {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    margin-top: 20px;
+    overflow: hidden;
+    
+}
+
+/* 各セル */
+.attendance-show th,
+.attendance-show td {
+    padding: 30px 15px;
+    background-color: white;
+    /* 白背景でカード風に */
+    text-align: left;
+    font-weight: bold;
+}
+
+/* thだけスタイル変える */
+.attendance-show th {
+    color: #6f6d6d;
+    font-weight: normal;
+    white-space: nowrap;
+    /* 名前や日付の文字数で崩れないように */
+}
+
+
+/* テーブルヘッダー（上の角） */
+.attendance-show tr:first-child th {
+    border-top-left-radius: 8px;
+}
+
+.attendance-show tr:first-child td {
+    border-top-right-radius: 8px;
+}
+
+/* テーブルフッター（下の角） */
+.attendance-show tr:last-child th {
+    border-bottom-left-radius: 8px;
+}
+
+.attendance-show tr:last-child td {
+    border-bottom-right-radius: 8px;
+}
+.attendance-show td .year {
+    margin-right: 150px;
+    /* 年と月日の間に空白 */
+}
+
+.time-input {
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 100px;
+}
+.time-separator {
+    margin: 0 40px;
+    /* 左右にスペースを入れる */
+    font-weight: bold;
+    /* 〜も太字に */
+}
+.attendance-textarea {
+    width: 55%;
+    line-height: 20px;/* 高さを広めに設定 */
+    padding: 3px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;/* 縦方向だけリサイズ可能 */
+    box-sizing: border-box;/* padding込みで幅が収まる */
+}
+
+.attendance-show .remarks-row td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-edit{
+    width: 15%;
+    padding: 10px 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: block;
+    margin-left: auto;/* 左余白を自動 */
+    margin-right: 0;
+}
+
+.edit-wait{
+    color: red;
+    text-align: right;
+}
+.time-approve {
+    appearance: none;/* 標準のUIを消す */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+   border: none;
+   background: none;
+   font-size: 18px;
+   font-weight: bold;
+   color: black;
+}
+.textarea-approve{
+    appearance: none;
+        /* 標準のUIを消す */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: none;
+        background: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+
+}
+
+.edit-approved{
+    width: 15%;
+    padding: 10px 12px;
+    background-color:gray;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: block;
+    margin-left: auto;/* 左余白を自動 */
+    margin-right: 0;
+}
+.error-message{
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+svg.w-5.h-5 {
+    display: none;
+}
+.flex-1.sm\:hidden {
+    display: none;
+}
