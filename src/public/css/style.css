@@ -241,7 +241,7 @@ h2 {
     background-color: white;
     color: #6f6d6d;
     text-align: center;
-    padding: 12px 15px;
+    padding: 12px 20px;
 }
 
 /* ヘッダー角を丸くする */
@@ -255,7 +255,7 @@ h2 {
 
 /* ボディ */
 .attendance-table tbody td {
-    padding: 12px 15px;
+    padding: 12px 0px;
     text-align: center;
     background-color: white;
 }
@@ -415,6 +415,11 @@ h2 {
    font-size: 18px;
    font-weight: bold;
    color: black;
+   text-align: center;
+    padding:  8px;
+    /* デフォルト余白を削除 */
+    
+    
 }
 .textarea-approve{
     appearance: none;
