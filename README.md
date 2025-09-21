@@ -6,6 +6,8 @@
 
 ## Laravel環境構築
 1. docker-compose exec php bash
+2. apt-get update && apt-get install -y git unzip
+3. composer.jsonの"require-dev"に "laravel-lang/lang": "*",を追記
 2. composer install
 3. cp .env.exampleファイルから.envを作成し、環境変数を変更
 4. php artisan key:generate
