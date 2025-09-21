@@ -52,36 +52,42 @@ class ShowRequest extends FormRequest
         }
 
         // 休憩の整合性チェック
-            if ($this->has('breaks')) {
+        if ($this->has('breaks')) {
                 foreach ($this->input('breaks') as $i => $break) {
+                    $breakIn = $break['clock_in'] ? Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $break['clock_in']) : null;
+                    $breakOut = $break['clock_out'] ? Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $break['clock_out']) : null;
+                    $in      = $clockIn ? Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $clockIn) : null;
+                    $out     = $clockOut ? Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $clockOut) : null;
 
-                    if (!empty($break['clock_in']) && $clockIn) {
-                        $breakIn = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $break['clock_in']);
-                        $in      = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $clockIn);
-
+                    // 休憩開始時間が出勤時間より前になっている場合
+                    if ($breakIn && $in) {
                         if ($breakIn->lt($in)) {
                             $validator->errors()->add("breaks.$i.clock_in", '休憩時間が不適切な値です');
                         }
                     }
-
-                    if (!empty($break['clock_in']) && $clockOut) {
-                      $breakIn = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $break['clock_in']);
-                       $out     = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $clockOut);
-
+                    // 休憩開始時間が退勤時間より後になっている場合
+                    if ($breakIn && $out) {
                         if ($breakIn->gt($out)) {
                             $validator->errors()->add("breaks.$i.clock_in", '休憩時間が不適切な値です');
                         }
                     }
 
-
-                    if (!empty($break['clock_out']) && $clockOut) {
-                        $breakOut = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $break['clock_out']);
-                        $out      = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $clockOut);
-
+                    // 休憩終了時間が退勤より後になっている場合
+                    if ($breakOut && $out) {
                         if ($breakOut->gt($out)) {
                             $validator->errors()->add("breaks.$i.clock_out", '休憩時間もしくは退勤時間が不適切な値です');
                         }
                     }
+
+
+                    // 休憩終了時間が休憩開始より前になっている場合
+                    if ($breakOut && $breakIn) {
+                        if ($breakOut->lt($breakIn)) {
+                            $validator->errors()->add("breaks.$i.clock_out", '休憩時間が不適切な値です');
+                        }
+                    }
+
+
                 }
             }
     });

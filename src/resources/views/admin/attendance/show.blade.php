@@ -34,26 +34,34 @@
                 @enderror
             </td>
         </tr>
+        @php
+         $breaksOld = old('breaks', $attendance->breaks->toArray());
+        @endphp
 
         @foreach ($attendance->breaks as $i => $break)
         <tr>
             <th >
-                休憩
-                @if($attendance->breaks->count() > 1)
-                  {{ $i + 1 }}
-                @endif
+                休憩{{ $i + 1 }}
             </th>
             <td >
-                <input type="time" name="breaks[{{ $break->id }}][clock_in]" value="{{ optional($break->clock_in)->format('H:i') }}" class="time-input">
-                <span class="time-separator">〜</span>
-                <input type="time" name="breaks[{{ $break->id }}][clock_out]" value="{{ optional($break->clock_out)->format('H:i') }}" class="time-input">
+                <input type="time" 
+          name="breaks[{{ $break->id }}][clock_in]" 
+          value="{{ old("breaks.$break->id.clock_in",optional($break->clock_in)->format('H:i')) }}" 
+          class="time-input">
 
-                @error("breaks.$i.clock_in")
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-                @error("breaks.$i.clock_out")
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
+         <span class="time-separator">〜</span>
+
+         <input type="time" 
+            name="breaks[{{ $break->id }}][clock_out]" 
+            value="{{ old("breaks.$break->id.clock_out", optional($break->clock_out)->format('H:i')) }}" 
+            class="time-input">
+
+        @error("breaks.$break->id.clock_in")
+         <div class="error-message">{{ $message }}</div>
+        @enderror
+        @error("breaks.$break->id.clock_out")
+          <div class="error-message">{{ $message }}</div>
+        @enderror
             </td>
         </tr>
         @endforeach
