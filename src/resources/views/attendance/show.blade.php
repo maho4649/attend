@@ -70,9 +70,9 @@
         <tr>
             <th >休憩{{ $attendance->breaks->count() + 1 }}</th>
             <td >
-                <input type="time" name="breaks[new][clock_in]" value="" class="time-input">
+                <input type="time" name="breaks[new][clock_in]" value="{{ old('breaks.new.clock_in') }}" class="time-input">
                  <span class="time-separator">〜</span>
-                <input type="time" name="breaks[new][clock_out]" value="" class="time-input">
+                <input type="time" name="breaks[new][clock_out]" value="{{ old('breaks.new.clock_out') }}" class="time-input">
 
                 @error('breaks.new.clock_in')
                     <div class="error-message">{{ $message }}</div>
