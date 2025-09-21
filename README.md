@@ -8,13 +8,13 @@
 1. docker-compose exec php bash
 2. apt-get update && apt-get install -y git unzip
 3. composer.jsonの"require-dev"に "laravel-lang/lang": "*",を追記
-2. composer install
-3. cp .env.exampleファイルから.envを作成し、環境変数を変更
-4. php artisan key:generate
-5. php artisan migrate
-6. php artisan db:seed
-7. php artisan storage:link
-8. vendor/bin/phpunit
+4. composer install
+5. cp .env.exampleファイルから.envを作成し、環境変数を変更
+6. php artisan key:generate
+7. php artisan migrate
+8. php artisan db:seed
+9. php artisan storage:link
+10. vendor/bin/phpunit
 
 
 ## 使用技術
